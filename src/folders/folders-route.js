@@ -11,7 +11,6 @@ const serializeFolders = (folder) => ({
   count: folder.count,
 });
 
-// get all and post new folder
 foldersRouter
   .route("/")
   .get((req, res, next) => {
@@ -46,7 +45,6 @@ foldersRouter
       .catch(next);
   });
 
-// get folder by id, delete by id, patch updates title
 foldersRouter
   .route("/:folder_id")
   .all((req, res, next) => {
@@ -57,7 +55,7 @@ foldersRouter
             error: { message: `Folder does not exist.` },
           });
         }
-        res.folder = folder; // folders?
+        res.folder = folder;
         next();
       })
       .catch(next);
@@ -72,7 +70,6 @@ foldersRouter
       })
       .catch(next);
   })
-  // update folder
   .patch(jsonParser, (req, res, next) => {
     const { title } = req.body;
     const folderToUpdate = { title };

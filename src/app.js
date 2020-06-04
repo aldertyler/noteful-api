@@ -6,7 +6,6 @@ const helmet = require("helmet");
 const { NODE_ENV } = require("./config");
 const validateBearerToken = require("./validate-bearer-token");
 const errorHandler = require("./error-handler");
-// const router = require('./router')
 const notesRouter = require("./notes/notes-route");
 const foldersRoute = require("./folders/folders-route");
 const app = express();
@@ -20,7 +19,6 @@ app.use(
 app.use(cors());
 app.use(helmet());
 app.use(validateBearerToken);
-// app.use(router)
 app.use("/api/notes", notesRouter);
 app.use("/api/folders", foldersRoute);
 

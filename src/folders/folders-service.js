@@ -1,5 +1,3 @@
-// CRUD (create, read, update, and delete) operations. Allows for persistent storage
-
 const FoldersService = {
   getAllFolders(knex) {
     return knex.select("*").from("folders");
